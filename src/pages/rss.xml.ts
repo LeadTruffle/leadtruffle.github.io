@@ -1,4 +1,5 @@
 import type { APIRoute } from 'astro'
+import { withBase } from '../consts'
 
 const items = [
   {
@@ -46,7 +47,7 @@ export const GET: APIRoute = ({ site }) => {
     <lastBuildDate>${buildDate}</lastBuildDate>
     ${items
       .map((item) => {
-        const url = new URL(item.path, base).toString()
+        const url = new URL(withBase(item.path), base).toString()
         return `<item>
       <title>${escapeXml(item.title)}</title>
       <description>${escapeXml(item.description)}</description>

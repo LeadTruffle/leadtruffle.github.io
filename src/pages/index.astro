@@ -3,7 +3,7 @@ import Button from '../components/Button.astro'
 import FeatureCard from '../components/FeatureCard.astro'
 import WebchatEmbed from '../components/WebchatEmbed.astro'
 import SiteLayout from '../layouts/SiteLayout.astro'
-import { FEATURE_LINKS, REAL_SITE_URL } from '../consts'
+import { FEATURE_LINKS, REAL_SITE_URL, withBase } from '../consts'
 
 const pageTitle = 'LeadTruffle Demo Lab | Widget Showcase and Sandbox'
 const pageDescription =
@@ -28,8 +28,8 @@ const companyId = 'f096f9e3-001d-49ac-864c-3d73453bbe08'
         </p>
         <div class="hero__actions">
           <Button href={REAL_SITE_URL} variant="ghost">Visit the real site</Button>
-          <Button href="/playground/">Open the sandbox</Button>
-          <Button href="/widgets/" variant="secondary">See widget surfaces</Button>
+          <Button href={withBase('/playground/')}>Open the sandbox</Button>
+          <Button href={withBase('/widgets/')} variant="secondary">See widget surfaces</Button>
         </div>
         <div class="hero__stats">
           <div>
@@ -51,7 +51,7 @@ const companyId = 'f096f9e3-001d-49ac-864c-3d73453bbe08'
         <div class="hero-card">
           <div class="hero-card__badge">After-hours lead problem</div>
           <img
-            src={`${import.meta.env.BASE_URL}images/42pct_of_leads_after_hours.png`}
+            src={withBase('/images/42pct_of_leads_after_hours.png')}
             alt="Graphic showing that 42 percent of leads arrive after hours"
             loading="eager"
             width="1536"
@@ -62,7 +62,7 @@ const companyId = 'f096f9e3-001d-49ac-864c-3d73453bbe08'
         <div class="channel-stack">
           <div class="channel-pill">
             <img
-              src={`${import.meta.env.BASE_URL}images/platforms/google.svg`}
+              src={withBase('/images/platforms/google.svg')}
               alt="Google logo"
               width="24"
               height="24"
@@ -71,7 +71,7 @@ const companyId = 'f096f9e3-001d-49ac-864c-3d73453bbe08'
           </div>
           <div class="channel-pill">
             <img
-              src={`${import.meta.env.BASE_URL}images/platforms/thumbtack.svg`}
+              src={withBase('/images/platforms/thumbtack.svg')}
               alt="Thumbtack logo"
               width="24"
               height="24"
@@ -80,7 +80,7 @@ const companyId = 'f096f9e3-001d-49ac-864c-3d73453bbe08'
           </div>
           <div class="channel-pill">
             <img
-              src={`${import.meta.env.BASE_URL}images/platforms/yelp.svg`}
+              src={withBase('/images/platforms/yelp.svg')}
               alt="Yelp logo"
               width="24"
               height="24"
@@ -129,19 +129,19 @@ const companyId = 'f096f9e3-001d-49ac-864c-3d73453bbe08'
         eyebrow="Widgets"
         title="Embeddable chat, popup, and forms"
         description="Drop LeadTruffle into a site, capture intent in-context, and hand qualified leads to the right workflow."
-        href="/widgets/"
+        href={withBase('/widgets/')}
       />
       <FeatureCard
         eyebrow="Automations"
         title="Autoresponders tuned to the lead source"
         description="Different channels behave differently, so the demo lab breaks out flows for Yelp, Thumbtack, and Google LSA."
-        href="/features/"
+        href={withBase('/features/')}
       />
       <FeatureCard
         eyebrow="PR sandbox"
         title="Easy for candidates to contribute"
         description="This repo is intentionally lean so interview candidates can add demos, polish UX, or wire new snippets without fighting a giant codebase."
-        href="/playground/"
+        href={withBase('/playground/')}
       />
     </div>
   </section>

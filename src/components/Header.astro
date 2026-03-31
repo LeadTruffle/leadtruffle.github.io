@@ -1,14 +1,15 @@
 ---
 import Button from './Button.astro'
-import { NAV_LINKS, REAL_SITE_URL } from '../consts'
+import { NAV_LINKS, REAL_SITE_URL, withBase } from '../consts'
 
 const currentPath = Astro.url.pathname
+const homeHref = withBase('/')
 ---
 
 <header class="site-header">
   <div class="shell site-header__inner">
-    <a class="brand" href="/">
-      <img src={`${import.meta.env.BASE_URL}logo.svg`} alt="LeadTruffle" />
+    <a class="brand" href={withBase('/')}>
+      <img src={withBase('/logo.svg')} alt="LeadTruffle" />
       <div class="brand__copy">
         <span class="brand__name">LeadTruffle</span>
         <span class="brand__sub">Demo Lab</span>
@@ -19,8 +20,9 @@ const currentPath = Astro.url.pathname
       {
         NAV_LINKS.map((link) => {
           const isActive =
-            link.href === '/'
+            link.href === homeHref
               ? currentPath === '/'
+              || currentPath === homeHref
               : currentPath.startsWith(link.href)
 
           return (
@@ -37,8 +39,8 @@ const currentPath = Astro.url.pathname
 
     <div class="site-header__actions site-header__actions--desktop">
       <Button href={REAL_SITE_URL} variant="ghost" size="sm">Visit leadtruffle.co</Button>
-      <Button href="/playground/" variant="secondary" size="sm">Try the sandbox</Button>
-      <Button href="/features/" size="sm">Explore demos</Button>
+      <Button href={withBase('/playground/')} variant="secondary" size="sm">Try the sandbox</Button>
+      <Button href={withBase('/features/')} size="sm">Explore demos</Button>
     </div>
 
     <button
@@ -60,8 +62,9 @@ const currentPath = Astro.url.pathname
       {
         NAV_LINKS.map((link) => {
           const isActive =
-            link.href === '/'
+            link.href === homeHref
               ? currentPath === '/'
+              || currentPath === homeHref
               : currentPath.startsWith(link.href)
 
           return (
@@ -78,8 +81,8 @@ const currentPath = Astro.url.pathname
 
     <div class="mobile-nav-actions">
       <Button href={REAL_SITE_URL} variant="ghost" size="sm">Visit leadtruffle.co</Button>
-      <Button href="/playground/" variant="secondary" size="sm">Try the sandbox</Button>
-      <Button href="/features/" size="sm">Explore demos</Button>
+      <Button href={withBase('/playground/')} variant="secondary" size="sm">Try the sandbox</Button>
+      <Button href={withBase('/features/')} size="sm">Explore demos</Button>
     </div>
   </div>
 

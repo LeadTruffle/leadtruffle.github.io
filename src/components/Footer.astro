@@ -5,6 +5,7 @@ import {
   RSS_FEED_URL,
   SITEMAP_URL,
   TERMS_OF_SERVICE_URL,
+  withBase,
 } from '../consts'
 ---
 
@@ -22,18 +23,18 @@ import {
     <div>
       <p class="footer__heading">Explore</p>
       <div class="footer__links">
-        <a href="/widgets/">Widgets</a>
-        <a href="/playground/">Playground</a>
-        <a href="/features/">Features</a>
+        <a href={withBase('/widgets/')}>Widgets</a>
+        <a href={withBase('/playground/')}>Playground</a>
+        <a href={withBase('/features/')}>Features</a>
       </div>
     </div>
 
     <div>
       <p class="footer__heading">Popular flows</p>
       <div class="footer__links">
-        <a href="/features/yelp/">Yelp</a>
-        <a href="/features/thumbtack/">Thumbtack</a>
-        <a href="/features/google-lsa/">Google LSA</a>
+        <a href={withBase('/features/yelp/')}>Yelp</a>
+        <a href={withBase('/features/thumbtack/')}>Thumbtack</a>
+        <a href={withBase('/features/google-lsa/')}>Google LSA</a>
       </div>
     </div>
   </div>

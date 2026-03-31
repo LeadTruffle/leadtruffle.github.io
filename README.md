@@ -2,6 +2,10 @@
 
 An Astro-powered demo playground for showcasing LeadTruffle widgets, lead capture flows, and autoresponder features.
 
+Live demo site: https://leadtruffle.github.io/
+
+If you are looking for the real company website, go to https://www.leadtruffle.co/
+
 ## What this repo is for
 
 - Show off LeadTruffle web chat, popup, and form widgets
@@ -20,4 +24,9 @@ npm run build
 
 ## Deployment
 
-This repo includes a GitHub Actions workflow for GitHub Pages. The Astro config automatically uses the repository name as the base path during GitHub builds.
+This repo deploys to GitHub Pages via GitHub Actions.
+
+- Demo site URL: https://leadtruffle.github.io/
+- Production company site: https://www.leadtruffle.co/
+
+Because this repository is now the `leadtruffle.github.io` Pages repo, it serves from the root URL instead of a project subpath.
